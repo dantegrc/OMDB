@@ -16,7 +16,7 @@ angular.module('omdb').config(function ($stateProvider) {
                 }
             },
         data: {
-            title: 'OMDB'
+            title: 'OMDb'
         }
     });
 });
