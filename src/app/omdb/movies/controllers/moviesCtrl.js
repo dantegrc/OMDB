@@ -4,7 +4,6 @@ angular.module('omdb.movies').controller('moviesCtrl', function ($rootScope, $sc
 
     var dtCall = datatableApiCall;
     $scope.options = {
-        //"data": designs.data.data,
         stateSave: true,
         oLanguage: {
             "sSearchPlaceholder": "Search movie...",
@@ -15,8 +14,6 @@ angular.module('omdb.movies').controller('moviesCtrl', function ($rootScope, $sc
             $compile(angular.element(nRow))($scope);
         },
         stateSaveParams: function (oSettings, oData) {
-            //// Save the filter parameters to local storage
-            //scope.saveFilterParamsToLocalStorage(oSettings, oData);
         },
         fnHeaderCallback: function (nHead) {
 
@@ -37,7 +34,7 @@ angular.module('omdb.movies').controller('moviesCtrl', function ($rootScope, $sc
                 }
             });
 
-            dtCall.initiateContact('Design', sSource, aoData, fnCallback, oSettings, newParameters);
+            dtCall.initiateContact('', sSource, aoData, fnCallback, oSettings, newParameters);
         },
         columns: [
             // Poster
@@ -45,11 +42,10 @@ angular.module('omdb.movies').controller('moviesCtrl', function ($rootScope, $sc
                 "orderable": false,
                 "mRender": function (data, type, full) {
 
-                    var image = full.Poster == "N/A" ? `<a ui-sref="app.omdb.movies.details({'imdbId':'${full.imdbID}'})"> <img src="styles/img/no_image_available.png" style="width:75px;height:100px;"></a>` :
+                    var image = full.Poster == "N/A" ?
+                        `<a ui-sref="app.omdb.movies.details({'imdbId':'${full.imdbID}'})"> <img src="styles/img/no_image_available.png" style="width:75px;height:100px;"></a>` :
                         `<a ui-sref="app.omdb.movies.details({'imdbId':'${full.imdbID}'})"> <img src="${full.Poster}" style="width:75px;height:100px;"></a>`;
-                    if (image === "N/A") {
 
-                    }
                     return image;
                 }
             },
