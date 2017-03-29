@@ -1,0 +1,188 @@
+<div id="content">
+
+
+    <!--############################################-->
+    <!--## BREADCRUMBS                            ##-->
+    <!--############################################-->
+    <div class="row">
+        <big-breadcrumbs items="['Movies', 'Movie Details']" icon="film" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></big-breadcrumbs>
+    </div>
+    <!--/.row-->
+
+    <!--################################################-->
+    <!--## WIDGET GRID                                ##-->
+    <!--################################################-->
+    <section id="widget-grid" data-widget-grid>
+        <div class="row">
+
+            <!--########################################-->
+            <!--## NEW WIDGET START                   ##-->
+            <!--########################################-->
+            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div data-jarvis-widget class="jarviswidget-color-darken" data-widget-deletebutton="false" data-widget-editbutton="false"
+                    data-widget-colorbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-film"></i> </span>
+                        <h2><b ng-bind="movieDetails.Title"></b> - <b ng-bind="movieDetails.Type"> </b></h2>
+                    </header>
+
+                    <!--################################-->
+                    <!--## WIDGET DIV                 ##-->
+                    <!--################################-->
+                    <div>
+                        <div class="widget-body no-padding">
+
+                            <widget-data-toolbar class="widget-body-toolbar">
+                                <button class="btn btn-md btn-default pull-right" ng-click="backToMovies()">Back To Movies</button>
+                                <div class="clearfix"></div>
+                            </widget-data-toolbar>
+
+                            <div>
+
+                                <table class="table">
+                                    <tbody>
+                                        <!--################################-->
+                                        <!--## FIRST ROW                  ##-->
+                                        <!--################################-->
+                                        <tr>
+                                            <!--POSTER USES 2 ROWS-->
+                                            <td rowspan="2" width="300"><img src="{{posterURL()}}" width="300" height="460"></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <!-- Table First Row, Second Column. Movie Information.-->
+                                                <table class="table">
+                                                    <tr ng-show="movieDetails.Production">
+                                                        <th>Production: </th>
+                                                        <td ng-bind="movieDetails.Production"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Country">
+                                                        <th>Country: </th>
+                                                        <td ng-bind="movieDetails.Country"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Released">
+                                                        <th>Release Date:</th>
+                                                        <td ng-bind="movieDetails.Released"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.DVD">
+                                                        <th>DVD Release:</th>
+                                                        <td ng-bind="movieDetails.DVD"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Year">
+                                                        <th>Year: </th>
+                                                        <td ng-bind="movieDetails.Year"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Rated">
+                                                        <th>Rated: </th>
+                                                        <td ng-bind="movieDetails.Rated"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Genre">
+                                                        <th>Genre: </th>
+                                                        <td ng-bind="movieDetails.Genre"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Language">
+                                                        <th>Language: </th>
+                                                        <td ng-bind="movieDetails.Language"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.BoxOffice">
+                                                        <th>Box Office: </th>
+                                                        <td ng-bind="movieDetails.BoxOffice"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Runtime">
+                                                        <th>Runtime: </th>
+                                                        <td ng-bind="movieDetails.Runtime"></td>
+                                                    </tr>
+                                                    <tr ng-show="websiteURL()">
+                                                        <th>Website: </th>
+                                                        <td>
+                                                            <a href="{{websiteURL()}}" ng-bind="movieDetails.Website"></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Plot">
+                                                        <th>Plot:</th>
+                                                        <td>
+                                                            <p ng-bind="movieDetails.Plot">
+
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <!--EOF TABLE-->
+                                            </td>
+                                        </tr>
+                                        <!--EOF FIRST ROW-->
+
+                                        <tr>
+                                            <!-- Second Row. Empty. Cure Styles-->
+                                        </tr>
+
+                                        <!--################################-->
+                                        <!--## THIRD ROW                 ##-->
+                                        <!--################################-->
+                                        <tr>
+
+                                            <td>
+                                                <!-- Table Third Row, First Column. People Involved. -->
+
+                                                <table class="table">
+                                                    <tr ng-show="movieDetails.Director">
+                                                        <th>Director:</th>
+                                                        <td ng-bind="movieDetails.Director"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Writer">
+                                                        <th>Writer: &nbsp;</th>
+                                                        <td ng-bind="movieDetails.Writer"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Actors">
+                                                        <th>Actors: &nbsp;</th>
+                                                        <td ng-bind="movieDetails.Actors"></td>
+                                                    </tr>
+                                                </table>
+
+                                            </td>
+
+                                            <td>
+                                                <!--EOF FIRST COLUMN-->
+
+                                                <!-- Table Third Row, Second Column. Awards and Ratings. -->
+
+                                                <table class="table">
+                                                    <tr ng-show="movieDetails.Awards">
+                                                        <th width="20%">Awards:</th>
+                                                        <td ng-bind="movieDetails.Awards"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.Metascore">
+                                                        <th>Metascore:</th>
+                                                        <td ng-bind="movieDetails.Metascore"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.imdbRating">
+                                                        <th>imdb Rating:</th>
+                                                        <td ng-bind="movieDetails.imdbRating"></td>
+                                                    </tr>
+                                                    <tr ng-show="movieDetails.imdbVotes">
+                                                        <th>imdb Votes:</th>
+                                                        <td ng-bind="movieDetails.imdbVotes"></td>
+                                                    </tr>
+                                                    <tr ng-repeat="rating in movieDetails.Ratings">
+                                                        <th>{{rating.Source}}:</th>
+                                                        <td ng-bind="rating.Value"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <!--EOF SECOND COLUMN-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+
+</div>
