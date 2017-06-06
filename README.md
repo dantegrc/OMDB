@@ -14,9 +14,6 @@ You may change the port number from inside the gulp file.
 NOTE: Must have NodeJS installed. All the dependencies will be resolved, but angularjs should be at version 1.4.14.
 If the installation process fails you may host the 'build' folder on any web server.
 
-*Files activaly worked on are: All found inside the omdb module and _common/directives/dataTableServerSide.js and _common/services/dataTableApiCall.js.
-
-
 
 # OMDb-Search-Exam
 Search the OMDb API
