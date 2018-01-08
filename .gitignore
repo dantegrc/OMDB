@@ -1,6 +1,4 @@
 
-# Created by https://www.gitignore.io/api/osx,node,macos,bower,windows,webstorm,visualstudiocode
-
 ### Bower ###
 bower_components
 .bower-cache
